@@ -81,7 +81,7 @@ document.body.style.backgroundColor = "white";
       {/* <Navbar title="textui" aboutText="About Us"/> */} 
        {/* <Navbar/> */}
       <Router>
-      <Navbar title="textUI" mode={mode} toggleMode={toggleMode} toggleMode2={toggleMode2} />
+      <Navbar title="textUi" mode={mode} toggleMode={toggleMode} toggleMode2={toggleMode2} />
       <Alert alert={alert} />
       <div className="container">
      
