@@ -1,36 +1,41 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react';
 
 
-export default function About() {
-  const [myStyle, setmyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
+export default function About(props) {
+//   const [myStyle, setmyStyle] = useState({
+//     color: "black",
+//     backgroundColor: "white",
   
-})
-const [Btntext, setBtntext] = useState("Enable Dark Mode");
-const toggleStyle= ()=>{
-    if(myStyle.color === 'black'){
-        setmyStyle({
-            color: "white",
-            backgroundColor: "black",
-            border: '1px solid white'
-        })
-        setBtntext("Enable Light Mode")
-    }else{
-        setmyStyle({
-            color: "black",
-            backgroundColor: "white"
-        })
-        setBtntext("Enable Dark Mode")
+ //})
+const myStyle = {
+    color: props.mode ==='dark'?'white': '#305996',
+    backgroundColor: props.mode ==='dark'?'#305996':'white',
 
-
-    }
 }
+//const [Btntext, setBtntext] = useState("Enable Dark Mode");
+// const toggleStyle= ()=>{
+//     if(myStyle.color === 'black'){
+//         setmyStyle({
+//             color: "white",
+//             backgroundColor: "black",
+//             border: '1px solid white'
+//         })
+//         setBtntext("Enable Light Mode")
+//     }else{
+//         setmyStyle({
+//             color: "black",
+//             backgroundColor: "white"
+//         })
+//         setBtntext("Enable Dark Mode")
+
+
+//     }
+// }
 
     return (
        
-         <div className='container'style={myStyle}>
-              <h1>About Us</h1>
+         <div className='container'>
+              <h1 className='my-3' style={{color: props.mode ==='dark'?'white': '#305996'}}>About Us</h1>
             <div className="accordion" id="accordionPanelsStayOpenExample">
         <div className="accordion-item" style={myStyle}>
             <h2 className="accordion-header" id="panelsStayOpen-headingOne">
@@ -75,10 +80,10 @@ this is an example of lower case.
             </div>
         </div>
         </div>
-        <div className='container my-3'>
+        {/* <div className='container my-3'>
         <button onClick={toggleStyle} type="button" className="btn btn-primary">{Btntext}</button>
 
-        </div>
+        </div> */}
         </div>
     )
 }

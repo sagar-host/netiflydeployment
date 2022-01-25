@@ -39,6 +39,7 @@ export default function TextForm(props) {
  let newText = document.getElementById('myBox')
  newText.select();
  navigator.clipboard.writeText(newText.value)
+ document.getSelection().removeAllRanges();
  props.showAlert('Copied', 'success');
 
   // setText('you have clicked on copy')
@@ -59,16 +60,16 @@ export default function TextForm(props) {
      <>
       <div className="container" style={{color: props.mode==='dark'?'white':'#042743'}}>
 
-    <h1>{props.heading}</h1>
+    <h1 className="mb-3">{props.heading}</h1>
   <div className="mb-3" >
-    <textarea value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='light'?'white':'white',color: props.mode==='dark'?'black':'#042743'}} className="form-control" id="myBox" rows='8'></textarea>
+    <textarea value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#28518e':'white',color: props.mode==='dark'?'white':'#042743'}} className="form-control" id="myBox" rows='8'></textarea>
   </div>
  
-<button onClick={handleUpClick} className="btn btn-primary mx-2">convert to upperCase</button>
-<button onClick={handleLoClick}  className="btn btn-primary mx-2">convert to lowerCase</button>
-<button onClick={handleUndoClick}  className="btn btn-primary mx-2">Undo</button>
-<button onClick={handleClearClick} className="btn btn-primary mx-2 my-2">Clear</button>
-<button onClick={handleCopy}  className="btn btn-primary mx-2 my-2">Copy</button>
+<button disabled={text.length===0} onClick={handleUpClick} className="btn btn-primary mx-2 my-1">convert to upperCase</button>
+<button disabled={text.length===0} onClick={handleLoClick}  className="btn btn-primary mx-2 my-1">convert to lowerCase</button>
+<button disabled={text.length===0} onClick={handleUndoClick}  className="btn btn-primary mx-2 my-1">Undo</button>
+<button disabled={text.length===0} onClick={handleClearClick} className="btn btn-primary mx-2 my-2">Clear</button>
+<button disabled={text.length===0} onClick={handleCopy}  className="btn btn-primary mx-2 my-2 my-1">Copy</button>
 
  
 
@@ -81,7 +82,7 @@ export default function TextForm(props) {
      <p>{text.length===0?0:text.trim().split(' ').length} words, {text.length}characters</p>
      <p>{0.008* text.split(" ").length} minutes to read these words</p>
  <h2>preview</h2>
- <p>{text.length>0?text: "Enter something to preview here"}</p>
+ <p>{text.length>0?text: "Nothing to preview here!"}</p>
  </div>
   </>
  )

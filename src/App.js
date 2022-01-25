@@ -68,7 +68,7 @@ document.body.style.backgroundColor = "white";
       setMode("dark");
       document.body.style.backgroundColor = "#042743";
       showAlert('Dark Mode Enabled', 'sucess')
-      document.title = 'teaxtUi - Dark mode'
+      // document.title = 'teaxtUi - Dark mode'
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
@@ -87,10 +87,10 @@ document.body.style.backgroundColor = "white";
      
       <Switch>
           <Route exact path="/about">
-            <About />
+            <About mode={mode}/>
           </Route>
           <Route exact path="/">
-          <TextForm showAlert ={showAlert} heading="textArea" my-3 mode={mode} />
+          <TextForm showAlert ={showAlert} heading="Try mytextui- Word Counter, Character Counter, Copy Text" my-3 mode={mode} />
 
           </Route>
         </Switch>
