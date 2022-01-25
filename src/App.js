@@ -62,7 +62,7 @@ document.body.style.backgroundColor = "white";
 
   const toggleMode = (cls) => {
     removeBodyClasses();
-    console.log(cls);
+    // console.log(cls);
     document.body.classList.add('bg-'+cls)
     if (mode === "light") {
       setMode("dark");

@@ -5,7 +5,7 @@ export default function TextForm(props) {
 
 
    const handleUpClick = ()=>{
-       console.log('uppercase was clicked'+ text);
+      //  console.log('uppercase was clicked'+ text);
       let newText = text.toUpperCase();
        setText('you have clicked on handleupclick')
   setText(newText)
@@ -13,21 +13,21 @@ export default function TextForm(props) {
     }
       
    const handleLoClick = ()=>{
-    console.log('lowercase was clicked'+ text);
+    // console.log('lowercase was clicked'+ text);
    let newText = text.toLowerCase();
     setText('you have clicked on handleLoclick')
     setText(newText)
     props.showAlert('Converted to lowerCase', 'success');
  }
  const handleClearClick = ()=>{
-    console.log('clear'+ text);
+    // console.log('clear'+ text);
    let newText = "";
     setText('you have clicked on clear')
     setText(newText)
     props.showAlert('All Clear', 'success');
  }
  const handleUndoClick = ()=>{
-    console.log('undo'+ text);
+    // console.log('undo'+ text);
    let newText = text
    newText = newText.slice(0, -1)
     setText('you have clicked on undo')
@@ -35,7 +35,7 @@ export default function TextForm(props) {
     props.showAlert('undo', 'success');
  }
  const handleCopy = ()=>{
-  console.log('copy'+ text);
+  // console.log('copy'+ text);
  let newText = document.getElementById('myBox')
  newText.select();
  navigator.clipboard.writeText(newText.value)
@@ -47,7 +47,7 @@ export default function TextForm(props) {
 }
 
    const handleOnChange = (event)=>{
-    console.log('clicked onchange');
+    // console.log('clicked onchange');
     setText(event.target.value)
     
 }
@@ -78,9 +78,9 @@ export default function TextForm(props) {
  </div>
  <div className="container my-3" style={{color: props.mode==='dark'?'white':'#042743'}}>
      <h2>Your text summary</h2>
-     {/* <p>{text.split(" ").length-1} words, {text.length}characters</p> */}
-     <p>{text.length===0?0:text.trim().split(' ').length} words, {text.length}characters</p>
-     <p>{0.008* text.split(" ").length} minutes to read these words</p>
+     <p>{text.split(/\s+/ ).filter((element)=>{return element.length!==0}).length} words, {text.length}characters</p>
+     {/* <p>{text.length===0?0:text.length} words, {text.length}characters</p> */}
+     <p>{0.008* text.split(" ").filter((element)=>{return element.length!==0}).length} minutes to read these words</p>
  <h2>preview</h2>
  <p>{text.length>0?text: "Nothing to preview here!"}</p>
  </div>
